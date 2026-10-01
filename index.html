@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Bandada: circuito anual de cosechas para trabajadores golondrina en el MERCOSUR. Propuesta para el Mundial de Estudiantes de Administración 2026.">
+<meta property="og:title" content="Bandada · Que la temporada no se termine">
+<meta property="og:description" content="Bandada: circuito anual de cosechas para trabajadores golondrina en el MERCOSUR. Propuesta para el Mundial de Estudiantes de Administración 2026.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2314202B'/%3E%3Cpath d='M10 40 C22 18 30 18 34 32 S46 46 54 24' fill='none' stroke='%23E3A24A' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
+<title>Startup Bandada</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Literata:opsz,wght@7..72,400;7..72,600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: una columna de lectura (~68ch) que se abre a ancho completo para el calendario de cosechas y las tablas; el cielo de la golondrina como fondo, ocre de cosecha como único acento */
+:root{
+  --sky:#EDF1F3; --paper:#F8FAFB; --ink:#14202B; --muted:#56656F; --rule:#C9D3DA;
+  --grain:#B8741A; --leaf:#3E6A3A; --soil:#7A4A2A; --berry:#4B4F8F; --citrus:#B39A12;
+  --grain-soft:#F1E3CC; --leaf-soft:#DCE8D8; --on-bar:#FFFFFF;
+  --f-display:"Bricolage Grotesque", "Arial Narrow", system-ui, sans-serif;
+  --f-body:"Literata", Georgia, "Times New Roman", serif;
+  --f-data:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --sky:#0E151B; --paper:#151E26; --ink:#E3E9ED; --muted:#9AA8B2; --rule:#2A3742;
+    --grain:#E3A24A; --leaf:#86B57C; --soil:#C98E62; --berry:#9EA2E6; --citrus:#D9C24A;
+    --grain-soft:#3A2C17; --leaf-soft:#1F3020; --on-bar:#10161B; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --sky:#0E151B; --paper:#151E26; --ink:#E3E9ED; --muted:#9AA8B2; --rule:#2A3742;
+  --grain:#E3A24A; --leaf:#86B57C; --soil:#C98E62; --berry:#9EA2E6; --citrus:#D9C24A;
+  --grain-soft:#3A2C17; --leaf-soft:#1F3020; --on-bar:#10161B; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--sky);color:var(--ink);font-family:var(--f-body);font-size:1.02rem;line-height:1.62;margin:0}
+.wrap{max-width:1060px;margin:0 auto;padding-inline:clamp(16px,4vw,40px);padding-block:clamp(28px,5vw,64px)}
+.read{max-width:68ch}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.08;margin:0}
+h1{font-size:clamp(3rem,10vw,6.4rem);font-weight:800;letter-spacing:-.03em}
+h2{font-size:clamp(1.6rem,3.6vw,2.3rem);font-weight:700;letter-spacing:-.015em}
+h3{font-size:1.15rem;font-weight:700}
+p{margin:0}
+.eyebrow{font-family:var(--f-data);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.stack{display:flex;flex-direction:column;gap:1rem}
+section{display:flex;flex-direction:column;gap:1.4rem;padding-block:clamp(36px,6vw,64px);border-top:1px solid var(--rule)}
+a{color:var(--grain);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--grain);outline-offset:3px}
+
+/* hero */
+.hero{display:grid;gap:1.6rem;padding-bottom:clamp(32px,5vw,56px)}
+.hero .tag{font-family:var(--f-display);font-size:clamp(1.25rem,3vw,1.8rem);font-weight:500;color:var(--grain)}
+.hero .lede{font-size:1.15rem;max-width:62ch}
+.quote{font-family:var(--f-display);font-size:clamp(1.3rem,3.2vw,1.9rem);font-weight:700;line-height:1.2;border-left:4px solid var(--grain);padding-left:1rem;max-width:30ch}
+.route{width:100%;max-width:640px;height:auto}
+.route path{fill:none;stroke:var(--grain);stroke-width:2.5;stroke-dasharray:6 7}
+.route circle{fill:var(--ink)}
+.route text{fill:var(--muted);font-family:var(--f-data);font-size:11px}
+@media (prefers-reduced-motion: no-preference){
+  .route path{animation:fly 14s linear infinite}
+  @keyframes fly{to{stroke-dashoffset:-260}}
+}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.stat{background:var(--paper);padding:1.1rem 1.1rem 1rem;display:flex;flex-direction:column;gap:.35rem;min-width:0}
+.stat b{font-family:var(--f-display);font-size:2rem;font-weight:800;line-height:1;font-variant-numeric:tabular-nums}
+.stat span{font-size:.92rem}
+.stat small{font-family:var(--f-data);font-size:.7rem;color:var(--muted)}
+
+/* scoring */
+.bars{display:flex;flex-direction:column;gap:.7rem}
+.bar{display:grid;grid-template-columns:minmax(120px,15rem) 1fr 3ch;gap:.8rem;align-items:center}
+.bar .lbl{font-family:var(--f-display);font-weight:500;font-size:.98rem}
+.bar .track{height:14px;background:var(--paper);border:1px solid var(--rule);position:relative}
+.bar .fill{position:absolute;inset:0 auto 0 0;background:var(--muted);opacity:.55}
+.bar.win .fill{background:var(--grain);opacity:1}
+.bar.win .lbl{font-weight:800}
+.bar .val{font-family:var(--f-data);font-variant-numeric:tabular-nums;text-align:right}
+.note{font-size:.88rem;color:var(--muted)}
+.why{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem}
+.why div{display:flex;flex-direction:column;gap:.3rem;min-width:0}
+
+/* pieces */
+.pieces{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.4rem 2rem}
+.piece{display:flex;flex-direction:column;gap:.35rem;min-width:0;padding-top:.8rem;border-top:2px solid var(--ink)}
+.piece .k{font-family:var(--f-data);font-size:.72rem;color:var(--grain);letter-spacing:.08em;text-transform:uppercase}
+
+/* calendar */
+.cal-wrap{overflow-x:auto;border:1px solid var(--rule);background:var(--paper)}
+.cal{display:grid;grid-template-columns:11rem repeat(12,minmax(46px,1fr));min-width:760px}
+.cal .mh{font-family:var(--f-data);font-size:.72rem;color:var(--muted);text-align:center;padding:.55rem 0;border-bottom:1px solid var(--rule)}
+.cal .rl{font-family:var(--f-display);font-size:.9rem;font-weight:500;padding:.55rem .7rem;border-bottom:1px solid var(--rule);display:flex;flex-direction:column;justify-content:center;line-height:1.2}
+.cal .rl small{font-family:var(--f-data);font-size:.66rem;color:var(--muted);font-weight:400}
+.cal .cell{border-bottom:1px solid var(--rule);border-left:1px dashed var(--rule);position:relative}
+.cal .seg{grid-row:auto;align-self:center;height:26px;margin:.4rem 3px;font-family:var(--f-data);font-size:.7rem;color:var(--on-bar);display:flex;align-items:center;padding-inline:.5rem;white-space:nowrap;overflow:hidden;border-radius:2px}
+.c-berry{background:var(--berry)} .c-grain{background:var(--grain)} .c-leaf{background:var(--leaf)} .c-citrus{background:var(--citrus)} .c-soil{background:var(--soil)}
+.toggle{display:flex;flex-wrap:wrap;gap:.5rem}
+.toggle button{font-family:var(--f-display);font-weight:500;font-size:.95rem;background:var(--paper);color:var(--ink);border:1px solid var(--rule);padding:.5rem .9rem;cursor:pointer}
+.toggle button[aria-pressed="true"]{background:var(--ink);color:var(--sky);border-color:var(--ink)}
+.compare{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+.meter{display:flex;flex-direction:column;gap:.35rem}
+.meter .row{display:flex;justify-content:space-between;font-family:var(--f-data);font-size:.8rem;font-variant-numeric:tabular-nums}
+.meter .tr{height:10px;background:var(--rule);position:relative}
+.meter .fi{position:absolute;inset:0 auto 0 0}
+
+/* tables */
+.tbl-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.93rem}
+th,td{text-align:left;padding:.55rem .7rem;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--f-data);font-size:.72rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+td.n,th.n{text-align:right;font-family:var(--f-data);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:600;border-top:2px solid var(--ink)}
+.neg{color:var(--soil)} .pos{color:var(--leaf)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1rem}
+.kpi{display:flex;flex-direction:column;gap:.2rem;padding:.9rem;background:var(--paper);border:1px solid var(--rule);min-width:0}
+.kpi b{font-family:var(--f-display);font-size:1.6rem;font-weight:800;font-variant-numeric:tabular-nums}
+.kpi span{font-size:.85rem;color:var(--muted)}
+
+/* steps */
+ol.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:1rem;counter-reset:s}
+ol.steps li{counter-increment:s;display:grid;grid-template-columns:3.2rem 1fr;gap:.8rem;align-items:start}
+ol.steps li::before{content:"S" counter(s);font-family:var(--f-data);font-size:.85rem;background:var(--grain-soft);color:var(--ink);padding:.25rem .4rem;text-align:center}
+ol.steps li div{min-width:0;display:flex;flex-direction:column;gap:.2rem}
+.goal{font-family:var(--f-data);font-size:.78rem;color:var(--leaf)}
+
+/* faq */
+details{border-bottom:1px solid var(--rule);padding-block:.8rem}
+summary{font-family:var(--f-display);font-weight:500;font-size:1.05rem;cursor:pointer;list-style-position:outside}
+details p{margin-top:.6rem;max-width:68ch}
+.callout{background:var(--grain-soft);padding:1rem 1.1rem;font-size:.95rem;max-width:68ch}
+.callout.ok{background:var(--leaf-soft)}
+.sources{font-size:.82rem;color:var(--muted);columns:2 320px;column-gap:2rem}
+.sources li{break-inside:avoid;margin-bottom:.4rem}
+footer{font-size:.82rem;color:var(--muted);padding-top:2rem;border-top:1px solid var(--rule)}
+@media (max-width:520px){.bar{grid-template-columns:1fr 3ch}.bar .lbl{grid-column:1/-1}}
+</style>
+<style>img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <p class="eyebrow">Mundial de Estudiantes de Administración 2026 · Propuesta de startup</p>
+  <h1>Bandada</h1>
+  <p class="tag">Que la temporada no se termine.</p>
+  <p class="lede">Bandada encadena las cosechas de distintas provincias y países del MERCOSUR en un circuito anual. Así, el trabajador golondrina pasa de cuatro meses de changa y ocho de espera a un año completo de trabajo registrado. Coordinamos el matching, el transporte, el alojamiento, la registración y un historial laboral que viaja con cada persona. Pagan los productores y los exportadores; el trabajador nunca paga.</p>
+  <svg class="route" viewBox="0 0 640 120" role="img" aria-label="Ruta de una cuadrilla: Santiago del Estero, Tucumán, Buenos Aires, La Rioja y vuelta a Tucumán">
+    <path d="M30 80 C 110 20, 170 20, 210 60 S 330 105, 370 70 S 480 20, 520 55 S 600 95, 615 60"/>
+    <circle cx="30" cy="80" r="5"/><text x="12" y="105">Sgo. del Estero</text>
+    <circle cx="210" cy="60" r="5"/><text x="180" y="88">Tucumán · arándano</text>
+    <circle cx="370" cy="70" r="5"/><text x="330" y="98">Bs. As. · despanojado</text>
+    <circle cx="520" cy="55" r="5"/><text x="470" y="28">La Rioja · aceituna</text>
+    <circle cx="615" cy="60" r="5"/><text x="548" y="88">Tucumán · limón</text>
+  </svg>
+  <p class="quote">"En la cosecha no falta gente ni falta trabajo: están desencontrados."</p>
+</header>
+
+<section aria-labelledby="s-prob">
+  <p class="eyebrow">El problema</p>
+  <h2 id="s-prob">150.000 personas siguen a las cosechas. Nadie organiza su año.</h2>
+  <div class="stats">
+    <div class="stat"><b>150.000</b><span>trabajadores golondrina por año; <strong>35.000</strong> son santiagueños</span><small>Infobae, 27/09/2026</small></div>
+    <div class="stat"><b>67%</b><span>de los asalariados agrícolas no está registrado</span><small>INDEC 2024 vía Infobae</small></div>
+    <div class="stat"><b>−26%</b><span>cayó la vendimia de Mendoza 2026; el tacho bajó 30%, a $320-350</span><small>617.news · Infogremiales, 2026</small></div>
+    <div class="stat"><b>55-150 mil</b><span>temporeros faltan en Chile ese mismo verano; se paga hasta CLP 100.000 por día</span><small>Cerezos Chile · Memo · Mendoza Today</small></div>
+    <div class="stat"><b>6%</b><span>de los migrantes rurales accedió a la prestación por desempleo (SIPRED)</span><small>OIT, 2026</small></div>
+    <div class="stat"><b>1.048</b><span>personas rescatadas de explotación laboral en 2022-23</span><small>Comité contra la Trata vía OIT</small></div>
+  </div>
+  <div class="read stack">
+    <p><strong>Por qué ahora.</strong> El acuerdo UE-MERCOSUR se aplica provisoriamente desde el 01/05/2026. El reglamento europeo que prohíbe productos hechos con trabajo forzoso (2024/3015) rige desde el 14/12/2027. La reforma laboral derogó la prohibición de intermediar en el agro (Ley 27.742, art. 99). El 01/09/2026 venció sin prórroga el decreto 514/2021, que dejaba cobrar el plan social y trabajar registrado en la cosecha.</p>
+    <p><strong>Lo que nos pasó al lado.</strong> En Bento Gonçalves (Brasil, 2023) rescataron a 207 vendimiadores en condiciones de trabajo esclavo. Las bodegas Aurora, Salton y Garibaldi pagaron R$ 7 millones. El problema fue tercerizar sin control, y Bandada está diseñada para ser exactamente lo contrario.</p>
+  </div>
+</section>
+
+<section aria-labelledby="s-cal">
+  <p class="eyebrow">La solución</p>
+  <h2 id="s-cal">Un año de trabajo, armado como una ruta</h2>
+  <p class="read">Cada tramo usa los meses reales de cosecha, verificados con fuentes. El circuito arranca en agosto con el arándano tucumano y vuelve al punto de partida doce meses después, con pausas en casa entre tramos.</p>
+  <div class="toggle" role="group" aria-label="Elegir circuito">
+    <button type="button" id="b-np" aria-pressed="true" data-c="np">Circuito Norte–Pampa</button>
+    <button type="button" id="b-an" aria-pressed="false" data-c="an">Circuito Andino (con Chile)</button>
+  </div>
+  <div class="cal-wrap">
+    <div class="cal" id="cal" aria-live="polite"></div>
+  </div>
+  <div class="compare">
+    <div class="meter">
+      <div class="row"><span>Hoy (2-3 meses por campaña)</span><span>~95 jornadas</span></div>
+      <div class="tr"><div class="fi c-soil" style="width:39.6%"></div></div>
+    </div>
+    <div class="meter">
+      <div class="row"><span>Con Bandada</span><span id="j-band">~220 jornadas</span></div>
+      <div class="tr"><div class="fi c-grain" id="f-band" style="width:91.7%"></div></div>
+    </div>
+  </div>
+  <p class="note">La escala es de 0 a 240 jornadas por año. Las 95 jornadas son una estimación nuestra a partir de "2-3 meses por campaña" (Infobae 2026) y de Intercosecha, que cubre hasta 4 meses sin trabajo. Los meses de poda de vid son conocimiento general y hay que validarlos.</p>
+
+  <div class="pieces">
+    <div class="piece"><span class="k">Planificación</span><h3>Temporada Continua</h3><p>Cruza el calendario de cultivos, las distancias, la demanda que reservan los productores y las habilidades de cada cuadrilla, y con eso arma un itinerario de 9 a 12 meses.</p></div>
+    <div class="piece"><span class="k">RRHH</span><h3>Pasaporte Bandada</h3><p>Se apoya en la Libreta de Trabajo Rural virtual de RENATRE y le suma habilidades certificadas, productividad y referencias. El dato es del trabajador.</p></div>
+    <div class="piece"><span class="k">Logística</span><h3>Traslado y alojamiento</h3><p>Charter coordinado desde los nodos de origen y alojamiento verificado con el checklist del art. 24 de la Ley 26.727.</p></div>
+    <div class="piece"><span class="k">Resiliencia</span><h3>Garantía de reubicación</h3><p>Si una helada, el granizo o una mala temporada cancelan la cosecha, la cuadrilla pasa a otra finca de la red en menos de 72 horas.</p></div>
+    <div class="piece"><span class="k">Exportadores</span><h3>Cosecha Trazable</h3><p>Certificado por lote, con QR, que acredita trabajadores registrados y pagados según convenio. Sirve para GRASP y para la regulación europea de 2027.</p></div>
+    <div class="piece"><span class="k">Liderazgo</span><h3>Jefes de Bandada</h3><p>Al cabecilla de cada cuadrilla lo formalizamos como capataz certificado. Bandada le paga un incentivo transparente, que nunca sale del jornal de sus compañeros.</p></div>
+  </div>
+  <p class="callout ok"><strong>Canal:</strong> el trabajador usa WhatsApp y audios, sin descargar ninguna app; cada mensaje cuesta USD 0,026. <strong>El trabajador nunca paga</strong>, según el Principio 7 de la OIT para una contratación equitativa.</p>
+</section>
+
+<section aria-labelledby="s-why">
+  <p class="eyebrow">Por qué esta idea</p>
+  <h2 id="s-why">Seis finalistas medidas con la rúbrica del jurado</h2>
+  <div class="bars" role="list">
+    <div class="bar win" role="listitem"><span class="lbl">Bandada · circuito de cosechas</span><span class="track"><span class="fill" style="width:87%"></span></span><span class="val">87</span></div>
+    <div class="bar" role="listitem"><span class="lbl">Polinización como servicio</span><span class="track"><span class="fill" style="width:68%"></span></span><span class="val">68</span></div>
+    <div class="bar" role="listitem"><span class="lbl">Relevo · sucesión de PyMEs</span><span class="track"><span class="fill" style="width:65%"></span></span><span class="val">65</span></div>
+    <div class="bar" role="listitem"><span class="lbl">Derechos FIFA de clubes</span><span class="track"><span class="fill" style="width:64%"></span></span><span class="val">64</span></div>
+    <div class="bar" role="listitem"><span class="lbl">Botella de vino retornable</span><span class="track"><span class="fill" style="width:63%"></span></span><span class="val">63</span></div>
+  </div>
+  <p class="note">Puntaje sobre 100, ponderado según el art. 10: Innovación 20, Viabilidad 20, Comercial 15, Marketing digital 15, RRHH 10, Logística 10, Procesos 5 y Presentación 5. Lo estimamos nosotros para comparar las ideas entre sí; no es una predicción del resultado.</p>
+  <div class="why">
+    <div><h3>Los cinco roles son el negocio</h3><p>El reglamento exige especialistas en Marketing, Redes, RRHH, Logística y Procesos. En casi todas las apps, RRHH y Logística quedan como relleno. Acá esos 20 puntos son el producto.</p></div>
+    <div><h3>Nada igual en Sudamérica</h3><p>Harvest Trail (Australia) es estatal y solo informa. Cosecha Chile opera en un solo país. Harvust es software sin logística. Ninguno arma un circuito multicosecha entre países.</p></div>
+    <div><h3>Un vínculo de origen real</h3><p>De Santiago del Estero sale la primera migración golondrina del país. El equipo conoce el problema de primera mano.</p></div>
+  </div>
+  <p class="note">Descartadas:</p>
+  <ul class="note">
+    <li><strong>Polinización:</strong> ya existen Agrobee y BeeHero, y la colmena se paga USD 10-19.</li>
+    <li><strong>Relevo:</strong> convierte muy poco (106 traspasos sobre más de 10.000 inscriptos en Japón).</li>
+    <li><strong>FIFA:</strong> el reglamento ya le da a la AFA la plata de los clubes no afiliados.</li>
+    <li><strong>Botella retornable:</strong> ya existen Ping Vino y Vino Cercano, y no hay ley de envases.</li>
+  </ul>
+</section>
+
+<section aria-labelledby="s-num">
+  <p class="eyebrow">Modelo de negocio</p>
+  <h2 id="s-num">Paga quien necesita la cosecha</h2>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Fuente de ingreso</th><th>Quién paga</th><th>Precio (hipótesis)</th></tr></thead>
+      <tbody>
+        <tr><td>Fee por jornal colocado</td><td>Productor o empacadora</td><td>7% promedio sobre la masa salarial: 6% si reserva con anticipación, 9% si es urgente</td></tr>
+        <tr><td>Cosecha Trazable</td><td>Exportador</td><td>USD 150 por mes por establecimiento</td></tr>
+        <tr><td>Coordinación de traslados</td><td>Productor</td><td>USD 5 de margen por asiento de charter</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="kpis">
+    <div class="kpi"><b>9,5×</b><span>LTV/CAC del productor (el Instructivo pide más de 3)</span></div>
+    <div class="kpi"><b>USD 1,36</b><span>de contribución por jornal colocado</span></div>
+    <div class="kpi"><b>USD 100 mil</b><span>de inversión inicial</span></div>
+    <div class="kpi"><b>Año 2</b><span>con resultado operativo positivo</span></div>
+  </div>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Proyección (USD)</th><th class="n">Año 1</th><th class="n">Año 2</th><th class="n">Año 3</th></tr></thead>
+      <tbody>
+        <tr><td>Trabajadores activos</td><td class="n">600</td><td class="n">3.000</td><td class="n">10.000</td></tr>
+        <tr><td>Jornales colocados</td><td class="n">54.000</td><td class="n">390.000</td><td class="n">1.600.000</td></tr>
+        <tr><td>Ingresos</td><td class="n">129.840</td><td class="n">917.400</td><td class="n">3.761.000</td></tr>
+        <tr><td>Margen de contribución</td><td class="n">81.403</td><td class="n">624.252</td><td class="n">2.601.780</td></tr>
+        <tr><td>Costos fijos</td><td class="n">150.000</td><td class="n">560.000</td><td class="n">1.650.000</td></tr>
+        <tr class="total"><td>Resultado</td><td class="n neg">−68.597</td><td class="n pos">+64.252</td><td class="n pos">+951.780</td></tr>
+        <tr><td>Flujo acumulado (incluye inversión)</td><td class="n neg">−168.597</td><td class="n neg">−104.345</td><td class="n pos">+847.435</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">Es un modelo ilustrativo. Supone un jornal promedio de USD 28 (unos ARS 43.000 a 1.540 por dólar), un fee de 7% y un 80% de retención de productores. Mercado: TAM ≈ USD 118 M, SAM ≈ USD 29 M y SOM al año 3 ≈ USD 3,8 M en fees anuales. Hay que recalibrarlo con las entrevistas.</p>
+</section>
+
+<section aria-labelledby="s-merc">
+  <p class="eyebrow">Expansión</p>
+  <h2 id="s-merc">El MERCOSUR ya firmó la mitad del plan</h2>
+  <p class="read">El Acuerdo de Residencia MERCOSUR, vigente desde 2009, da dos años de residencia con derecho a trabajar a los nacionales de Argentina, Brasil, Uruguay, Paraguay, Bolivia, Chile, Perú, Colombia y Ecuador. Entre 2009 y 2016 se otorgaron 1,35 millones de residencias. Bandada se apoya en ese acuerdo.</p>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Fase</th><th>Corredor</th><th>Por qué ahí</th></tr></thead>
+      <tbody>
+        <tr><td>Año 1</td><td>Norte–Pampa (Argentina)</td><td>Es el flujo santiagueño real: despanojado, aceituna, limón y arándano.</td></tr>
+        <tr><td>Año 2</td><td>Andino, con Chile (Cristo Redentor)</td><td>Chile tiene déficit de temporeros y desde julio de 2026 permite contratos de hasta 10 meses.</td></tr>
+        <tr><td>Año 3</td><td>Uruguay y sur de Brasil; Paraguay como origen</td><td>Uruguay pasa de 80 mil a 130 mil toneladas de cítricos. En Brasil, las bodegas necesitan cumplimiento tras Bento Gonçalves.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section aria-labelledby="s-val">
+  <p class="eyebrow">Etapa 2 · 4 semanas</p>
+  <h2 id="s-val">Llegar a Mendoza con tracción, no con supuestos</h2>
+  <ol class="steps">
+    <li><div><h3>15 entrevistas</h3><p>8 trabajadores y cabecillas de Santiago del Estero; 5 productores (arándano, limón, aceituna, Alto Valle y uva); RENATRE y UATRE. Hay que preguntar cuánto cobra hoy el cuadrillero, cuántos días al año trabajan y si el productor pagaría 7%.</p><span class="goal">Meta: 15 entrevistas transcriptas</span></div></li>
+    <li><div><h3>MVP</h3><p>Un simulador web tipo WhatsApp que arma un circuito, que es también la demo del pitch. Además, inscripción, página de Facebook para trabajadores y la landing "Reservá tu cuadrilla".</p><span class="goal">Meta: 100 trabajadores preinscriptos</span></div></li>
+    <li><div><h3>Piloto hecho a mano</h3><p>Colocar una cuadrilla en el cierre del arándano tucumano (octubre) o firmar cartas de intención para el despanojado de diciembre y el limón 2027.</p><span class="goal">Meta: 1 cuadrilla colocada o 3 cartas de intención</span></div></li>
+    <li><div><h3>Cierre</h3><p>Recalibrar las finanzas con datos reales, completar los 10 entregables y ensayar el pitch y las preguntas difíciles.</p><span class="goal">Meta: entrega completa</span></div></li>
+  </ol>
+  <p class="callout">Hay que consultar al CLAM la fecha de entrega: el reglamento dice 28/10 y el Instructivo dice 30/10 a las 23:59. Además, la inscripción de equipos vence el <strong>02/10/2026 a las 23:59</strong>.</p>
+</section>
+
+<section aria-labelledby="s-pitch">
+  <p class="eyebrow">Defensa final · 15 minutos</p>
+  <h2 id="s-pitch">El tacho, el QR y la copa</h2>
+  <div class="why">
+    <div><h3>Apertura con objeto</h3><p>Un tacho de vendimia en el escenario: "Esto lleno pesa 20 kilos. En 2026 se pagó $335. Ese mismo verano, del otro lado de la cordillera, faltaban hasta 150 mil cosechadores."</p></div>
+    <div><h3>Demo con QR</h3><p>El público escanea un QR y el simulador le arma su circuito anual en el celular. Ese mismo celular es el que después usa para votar por QR (art. 12: 30 votos del público).</p></div>
+    <div><h3>Cierre</h3><p>"Cada copa de Malbec de este congreso la cosechó una golondrina. Que su temporada no se termine."</p></div>
+  </div>
+</section>
+
+<section aria-labelledby="s-faq">
+  <p class="eyebrow">Preguntas del jurado</p>
+  <h2 id="s-faq">Las cinco que más duelen, contestadas</h2>
+  <div>
+    <details><summary>"¿No son un cuadrillero digital, como en Bento Gonçalves?"</summary><p>Es al revés. El trabajador no paga nada, según el Principio 7 de la OIT. En la fase 1 el productor contrata y registra en forma directa, cada pago queda verificado y hay un canal de reclamos anónimo. Al Jefe de Bandada lo paga Bandada; nunca se le descuenta a la cuadrilla.</p></details>
+    <details><summary>"¿Es legal intermediar en el agro?"</summary><p>El art. 15 de la Ley 26.727, que lo prohibía, fue derogado por la Ley 27.742 (art. 99, BO 08/07/2024). La Ley 27.802 de 2026 reescribió el art. 12 sobre la responsabilidad del usuario. Hay que validarlo con un abogado laboralista antes de la final.</p></details>
+    <details><summary>"Mendoza 2026 tuvo sobreoferta, no falta de gente."</summary><p>Ese es justamente el argumento. Mientras en Mendoza sobraba gente, en Chile faltaban entre 55 y 150 mil temporeros. El problema es el desencuentro, y para eso existe la garantía de reubicación.</p></details>
+    <details><summary>"¿Por qué un productor pagaría 7%?"</summary><p>Porque compra mano de obra asegurada y planificada, con cumplimiento legal y trazabilidad para exportar. Lo que paga hoy al intermediario informal, más el riesgo de multas y de perder fruta, le sale más caro. Este punto lo validamos en las entrevistas.</p></details>
+    <details><summary>"¿Y si después se arreglan por fuera de la plataforma?"</summary><p>El trabajador quiere el próximo tramo y el productor quiere la misma cuadrilla confiable la temporada siguiente. A eso se suman los documentos de cumplimiento y el transporte. El valor de Bandada sigue después del primer contacto.</p></details>
+  </div>
+</section>
+
+<section aria-labelledby="s-src">
+  <p class="eyebrow">Fuentes</p>
+  <h2 id="s-src">De dónde sale cada número</h2>
+  <ul class="sources">
+    <li><a target="_blank" rel="noopener" href="https://www.infobae.com/sociedad/2026/09/27/aves-de-paso-la-larga-travesia-de-los-150-mil-trabajadores-golondrina-que-recorren-el-pais-detras-de-cada-cosecha/">Infobae (27/09/2026), Aves de paso</a></li>
+    <li><a target="_blank" rel="noopener" href="https://www.ilo.org/sites/default/files/2026-04/Oportunidades%20y%20desafios%20para%20mejorar%20vida%20laboral%20migrantes.pdf">OIT (2026), trabajadores migrantes rurales en Argentina</a></li>
+    <li><a target="_blank" rel="noopener" href="https://www.argentina.gob.ar/normativa/nacional/norma-192152/actualizacion">Ley 26.727, texto actualizado</a></li>
+    <li><a target="_blank" rel="noopener" href="https://huelladelsur.ar/2026/09/03/el-gobierno-dejo-vencer-el-decreto-que-compatibiliza-trabajo-rural-y-planes-sociales-y-quedaron-120-000-puestos-de-trabajo-sin-certezas/">Huella del Sur (09/2026), vencimiento del decreto 514</a></li>
+    <li><a target="_blank" rel="noopener" href="https://617.news/cosecha-2026-la-vendimia-en-mendoza-cayo-26-e-impacta-en-fincas-y-bodegas/">617.news (2026), vendimia −26%</a></li>
+    <li><a target="_blank" rel="noopener" href="https://www.infogremiales.com.ar/vendimia-trabajadores-rurales-de-la-cosecha-denunciaron-una-caida-del-30-en-el-valor-del-tacho-de-uva-y-reclaman-mejoras-salariales/">Infogremiales (2026), tacho −30%</a></li>
+    <li><a target="_blank" rel="noopener" href="https://mendozatoday.com.ar/2025/09/28/chile-busca-cosechadores-de-cerezas-cuanto-pagan-y-por-que-es-tan-atractivo-para-mendoza/">Mendoza Today (2025), cereza en Chile</a></li>
+    <li><a target="_blank" rel="noopener" href="https://www.infobae.com/america/america-latina/2026/07/10/chile-flexibilizara-los-contratos-para-extranjeros-que-trabajan-como-temporeros-en-el-agro/">Infobae (07/2026), contratos de 10 meses en Chile</a></li>
+    <li><a target="_blank" rel="noopener" href="https://www.internationalblueberry.org/2026/06/08/argentina-proyecta-una-cosecha-de-15-millones-de-kilos-de-arandanos-para-la-temporada-2026/">IBO (2026), calendario del arándano</a></li>
+    <li><a target="_blank" rel="noopener" href="https://www.ceil-conicet.gov.ar/wp-content/uploads/2024/11/mi18-EPT-limon.pdf">CEIL-CONICET (2024), limón en Tucumán</a></li>
+    <li><a target="_blank" rel="noopener" href="https://www.scielo.org.ar/scielo.php?script=sci_arttext&amp;pid=S1514-68712014000100003">Trabajo y Sociedad (2014), despanojado</a></li>
+    <li><a target="_blank" rel="noopener" href="https://sul21.com.br/noticias/geral/2023/03/vinicolas-de-bento-goncalves-pagarao-r-7-milhoes-por-trabalhadores-resgatados-na-vindima/">Sul21 (2023), Bento Gonçalves</a></li>
+    <li><a target="_blank" rel="noopener" href="https://www.fieldfisher.com/en/locations/germany/insights/eu-forced-labour-regulation">Reglamento UE 2024/3015 (Fieldfisher)</a></li>
+    <li><a target="_blank" rel="noopener" href="https://trade.ec.europa.eu/access-to-markets/es/news/aplicacion-del-acuerdo-comercial-interino-ue-mercosur-el-1-de-mayo-de-2026">Comisión Europea (2026), acuerdo interino UE-Mercosur</a></li>
+    <li><a target="_blank" rel="noopener" href="https://www.ilo.org/publications/general-principles-and-operational-guidelines-fair-recruitment-and">OIT, Principios de contratación equitativa</a></li>
+    <li><a target="_blank" rel="noopener" href="https://publications.iom.int/system/files/pdf/estudio_sobre_la_evaluacion_y_el_impacto_del_acuerdo_de_residencia_del_mercosur.pdf">OIM (2018), Acuerdo de Residencia MERCOSUR</a></li>
+    <li><a target="_blank" rel="noopener" href="https://www.flowcall.co/blog/whatsapp-business-api-pricing">Flowcall (10/2026), tarifas de WhatsApp</a></li>
+    <li><a target="_blank" rel="noopener" href="https://fce.uncuyo.edu.ar/mundial-de-estudiantes-de-administracion-2026">Reglamento e Instructivo del Mundial</a></li>
+  </ul>
+</section>
+
+<footer>
+  <p>Documento de trabajo del equipo, 01/10/2026. Lo elaboramos con apoyo de IA para la investigación y la estructura. Según los arts. 23-28 del reglamento, el equipo debe validar cada supuesto, apropiarse de las decisiones y declarar la herramienta en formato APA.</p>
+</footer>
+</div>
+
+<script>
+(function(){
+  var months=["Ago","Sep","Oct","Nov","Dic","Ene","Feb","Mar","Abr","May","Jun","Jul"];
+  var data={
+    np:{j:"~220 jornadas",w:91.7,rows:[
+      {l:"Tucumán",s:"arándano",a:0,b:3,c:"c-berry"},
+      {l:"NE de Buenos Aires",s:"despanojado de maíz",a:3,b:6,c:"c-leaf"},
+      {l:"Catamarca / La Rioja",s:"aceituna de mesa",a:6,b:9,c:"c-soil"},
+      {l:"Tucumán",s:"limón (pico jul-ago)",a:9,b:12,c:"c-citrus"}]},
+    an:{j:"~210 jornadas",w:87.5,rows:[
+      {l:"O'Higgins / Maule (CL)",s:"cereza",a:3,b:6,c:"c-berry"},
+      {l:"Alto Valle (RN)",s:"pera y manzana",a:5,b:8,c:"c-leaf"},
+      {l:"Mendoza / San Juan",s:"vendimia",a:7,b:9,c:"c-grain"},
+      {l:"Tucumán / Mendoza",s:"limón · poda de vid*",a:9,b:13,c:"c-citrus"}]}
+  };
+  var cal=document.getElementById("cal");
+  function render(k){
+    var d=data[k],h='<div class="mh"></div>';
+    months.forEach(function(m){h+='<div class="mh">'+m+'</div>';});
+    d.rows.forEach(function(r){
+      var end=Math.min(r.b,12);
+      h+='<div class="rl">'+r.l+'<small>'+r.s+'</small></div>';
+      for(var i=0;i<12;i++){
+        if(i===r.a){h+='<div class="seg '+r.c+'" style="grid-column:span '+(end-r.a)+'">'+r.s+'</div>';i=end-1;}
+        else{h+='<div class="cell"></div>';}
+      }
+    });
+    cal.innerHTML=h;
+    document.getElementById("j-band").textContent=d.j;
+    document.getElementById("f-band").style.width=d.w+"%";
+    ["np","an"].forEach(function(x){document.getElementById("b-"+x).setAttribute("aria-pressed",x===k?"true":"false");});
+    try{localStorage.setItem("bandada-circ",k);}catch(e){}
+  }
+  document.querySelectorAll(".toggle button").forEach(function(b){b.addEventListener("click",function(){render(b.dataset.c);});});
+  var start="np";try{var s=localStorage.getItem("bandada-circ");if(s&&data[s])start=s;}catch(e){}
+  render(start);
+})();
+</script>
+</body>
+</html>
