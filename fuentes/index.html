@@ -5,246 +5,157 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <title>Bandada · Fuentes y metodología</title>
-<meta name="description" content="De dónde sale cada dato de la web de Bandada, cómo se hicieron las estimaciones, qué imágenes son ilustrativas y qué falta confirmar.">
-<meta name="theme-color" content="#F7F3EA">
+<meta name="description" content="De dónde sale cada dato del sitio de Bandada, qué es una meta del plan y qué falta confirmar.">
+<meta name="theme-color" content="#12263D">
 <link rel="canonical" href="https://bandada.world/fuentes/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230F3B2C'/%3E%3Cpath d='M10 40 C22 18 30 18 34 32 S46 46 54 24' fill='none' stroke='%23F4A62A' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
-<link rel="preload" href="../fonts/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin>
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_AR">
+<meta property="og:site_name" content="Bandada">
+<meta property="og:title" content="Bandada · Fuentes y metodología">
+<meta property="og:description" content="De dónde sale cada dato del sitio de Bandada, qué es una meta del plan y qué falta confirmar.">
+<meta property="og:url" content="https://bandada.world/fuentes/">
+<meta property="og:image" content="https://bandada.world/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../img/marca/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../fonts/outfit.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../fonts/atkinson-hyperlegible-next.woff2" as="font" type="font/woff2" crossorigin>
-<style>
-@font-face{font-family:"Bricolage Grotesque";src:url(../fonts/bricolage-grotesque.woff2) format("woff2");font-weight:200 800;font-stretch:75% 100%;font-display:swap}
-@font-face{font-family:"Atkinson Hyperlegible Next";src:url(../fonts/atkinson-hyperlegible-next.woff2) format("woff2");font-weight:200 800;font-display:swap}
-@font-face{font-family:"IBM Plex Mono";src:url(../fonts/plex-mono-500.woff2) format("woff2");font-weight:500;font-display:swap}
-:root{
-  color-scheme:light;
-  --marfil:#F7F3EA;--papel:#FFFDF8;--arena:#EFE8D8;
-  --bosque:#0F3B2C;--bosque-2:#165039;
-  --tinta:#14271E;--tinta-2:#4B5B52;--tinta-3:#59655D;--linea:#DAD3C3;
-  --ambar:#F4A62A;--ruta:#E39A1A;--ambar-osc:#975A00;
-  --arandano:#4F52B5;--despanojado:#3F7F2C;--aceituna:#9A4E25;--limon:#7A6A00;
-  --display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
-  --sans:"Atkinson Hyperlegible Next",ui-sans-serif,system-ui,"Segoe UI",sans-serif;
-  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
-  --gut:clamp(16px,4.2vw,56px);
-}
-*,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scrollbar-color:var(--bosque-2) var(--marfil);scroll-padding-top:24px}
-@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
-body{margin:0;background:var(--marfil);color:var(--tinta);font-family:var(--sans);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
-::selection{background:var(--ambar);color:var(--tinta)}
-:focus-visible{outline:2px solid var(--bosque-2);outline-offset:3px}
-a{color:var(--bosque-2);text-underline-offset:.2em;text-decoration-thickness:1px;overflow-wrap:anywhere}
-a:hover{text-decoration-thickness:2px}
-h1,h2,h3{margin:0;font-family:var(--display);letter-spacing:-.03em;line-height:1.02;text-wrap:balance}
-p,ul,ol,dl,dd{margin:0}
-ul,ol{padding:0;list-style:none}
-.mono{font-family:var(--mono);font-size:.85rem;font-weight:500;font-variant-numeric:tabular-nums}
-.skip{position:fixed;left:12px;top:-64px;z-index:10;padding:12px 18px;border-radius:999px;background:var(--tinta);color:var(--papel);font-weight:700;text-decoration:none}
-.skip:focus{top:12px}
-
-.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px var(--gut)}
-.logo{display:flex;align-items:center;gap:10px;color:var(--tinta);text-decoration:none;font:780 1.25rem/1 var(--display);letter-spacing:-.03em}
-.logo svg{width:34px;height:34px}
-.volver{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border-radius:999px;box-shadow:inset 0 0 0 1.5px var(--tinta);color:var(--tinta);font-weight:700;text-decoration:none}
-.volver svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round}
-.volver:hover{background:rgba(20,39,30,.06)}
-
-.wrap{width:min(100% - 2*var(--gut),1180px);margin-inline:auto}
-.cab{padding:clamp(40px,7vw,96px) 0 clamp(32px,5vw,64px);border-bottom:1.5px solid var(--tinta)}
-.cab h1{font-size:clamp(2.6rem,1.4rem + 4.4vw,5rem);font-weight:780;line-height:.95;letter-spacing:-.036em}
-.cab p{margin-top:20px;max-width:56ch;font-size:clamp(1.1rem,1rem + .4vw,1.3rem);color:var(--tinta-2)}
-.grid{display:grid;grid-template-columns:220px minmax(0,1fr);gap:clamp(32px,5vw,80px);padding:clamp(32px,5vw,64px) 0 clamp(64px,8vw,120px)}
-.indice{position:sticky;top:24px;align-self:start}
-.indice b{display:block;margin-bottom:10px;font-size:.9rem;color:var(--tinta-2)}
-.indice a{display:flex;align-items:center;min-height:40px;color:var(--tinta);font-weight:600;text-decoration:none;border-bottom:1px solid var(--linea)}
-.indice a:hover{color:var(--bosque-2)}
-main section{padding-bottom:clamp(40px,5vw,64px);margin-bottom:clamp(40px,5vw,64px);border-bottom:1px solid var(--linea)}
-main section:last-child{border-bottom:0;margin-bottom:0}
-main h2{font-size:clamp(1.75rem,1.2rem + 1.8vw,2.6rem);font-weight:760;margin-bottom:14px}
-main h3{font-size:1.2rem;font-weight:720;letter-spacing:-.015em}
-.intro{max-width:65ch;color:var(--tinta-2);margin-bottom:24px}
-.fuentes>li{display:grid;grid-template-columns:minmax(0,1fr);gap:6px;padding:18px 0;border-top:1px solid var(--linea);max-width:72ch}
-.fuentes>li:first-child{border-top:0;padding-top:4px}
-.fuentes .que{color:var(--tinta)}
-.ref{font-size:.97rem;color:var(--tinta-2)}
-.tramo{display:grid;gap:8px;padding:20px 0 20px 22px;border-top:1px solid var(--linea);position:relative;max-width:72ch}
-.tramo::before{content:"";position:absolute;left:0;top:27px;width:10px;height:10px;border-radius:50%;background:var(--c)}
-.tramo h3 .mono{font-weight:500;color:var(--tinta-2);margin-left:8px;letter-spacing:0}
-.sin{font-size:.95rem;color:var(--ambar-osc);font-weight:700}
-.calc{display:grid;gap:0;max-width:72ch;border-top:1px solid var(--linea)}
-.calc div{display:grid;grid-template-columns:minmax(0,13rem) minmax(0,1fr);gap:4px 20px;padding:14px 0;border-bottom:1px solid var(--linea)}
-.calc dt{font-weight:700}
-.calc dd{color:var(--tinta-2)}
-.nota{margin-top:18px;max-width:65ch;font-size:.97rem;color:var(--tinta-2)}
-.lista{display:grid;gap:12px;max-width:68ch}
-.lista li{position:relative;padding-left:22px}
-.lista li::before{content:"";position:absolute;left:2px;top:.62em;width:8px;height:8px;border-radius:50%;background:var(--ruta)}
-.apa{margin:18px 0;padding:20px 22px;border-radius:18px;background:var(--papel);box-shadow:0 0 0 1px var(--linea);max-width:72ch;display:grid;gap:12px}
-.apa p{padding-left:2.2em;text-indent:-2.2em}
-.pie{padding:32px 0 48px;border-top:1px solid var(--linea);font-size:.95rem;color:var(--tinta-2)}
-@media (max-width:860px){
-  .grid{grid-template-columns:1fr}
-  .indice{position:static}
-  .indice nav{display:flex;flex-wrap:wrap;gap:6px}
-  .indice a{min-height:44px;padding:0 14px;border:0;border-radius:999px;background:var(--arena)}
-  .calc div{grid-template-columns:1fr}
-}
-</style>
+<link rel="stylesheet" href="../assets/css/bandada.css">
+<link rel="stylesheet" href="../assets/css/paginas.css">
+<script>(function(d){d.classList.add('js');if(!matchMedia('(prefers-reduced-motion: reduce)').matches){d.classList.add('js-motion');setTimeout(function(){if(!window.Bandada)d.classList.remove('js-motion')},4000)}})(document.documentElement);</script>
+<script src="../assets/js/vendor/gsap.min.js" defer></script>
+<script src="../assets/js/vendor/ScrollTrigger.min.js" defer></script>
+<script src="../assets/js/vendor/SplitText.min.js" defer></script>
+<script src="../assets/js/vendor/lenis.min.js" defer></script>
+<script src="../assets/js/bandada.js" defer></script>
 </head>
 <body>
-<a class="skip" href="#contenido">Saltar al contenido</a>
-<header class="top">
-  <a class="logo" href="../" aria-label="Bandada, inicio">
-    <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#0F3B2C"/><path d="M10 40 C22 18 30 18 34 32 S46 46 54 24" fill="none" stroke="#F4A62A" stroke-width="5" stroke-linecap="round"/></svg>
-    Bandada
-  </a>
-  <a class="volver" href="../#anio"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3.5 5.5 8l4.5 4.5"/></svg>Volver al circuito</a>
-</header>
-
-<div class="wrap">
-  <div class="cab">
-    <h1>Fuentes y metodología.</h1>
-    <p>De dónde sale cada dato de la web, cómo hicimos las estimaciones y qué falta confirmar.</p>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<header class="cab" data-cab>
+  <div class="cab-in ancho">
+    <a class="logo" href="../" aria-label="Bandada, inicio"><svg class="ave" aria-hidden="true" focusable="false"><use href="../img/marca/marca.svg#ave"/></svg><svg class="palabra" aria-hidden="true" focusable="false"><use href="../img/marca/marca.svg#palabra"/></svg></a>
+    <nav class="cab-nav" aria-label="Principal"><a href="../#servicios">Servicios</a><a href="../#como">Cómo funciona</a><a href="../#rutas">Rutas</a><a href="../blog/">Blog</a><a href="../nosotros/">Nosotros</a></nav>
+    <div class="cab-acc">
+      <a class="btn btn--contorno btn--chico" href="../trabajadores/"><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/iconos.svg#i-user-circle"/></svg>Trabajadores</a>
+      <a class="btn btn--chico" href="../empresas/"><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/iconos.svg#i-buildings"/></svg>Empresas</a>
+    </div>
+    <button class="cab-menu" type="button" aria-expanded="false" aria-controls="menu" data-menu-abrir><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/iconos.svg#i-list"/></svg><span>Menú</span></button>
   </div>
-
-  <div class="grid">
-    <aside class="indice" aria-label="En esta página">
-      <b>En esta página</b>
-      <nav>
-        <a href="#datos">Datos del problema</a>
-        <a href="#circuito">Calendario del circuito</a>
-        <a href="#metodologia">Cómo estimamos</a>
-        <a href="#imagenes">Imágenes y recursos</a>
-        <a href="#ia">Uso de IA</a>
-        <a href="#pendiente">Qué falta confirmar</a>
-      </nav>
-    </aside>
-
-    <main id="contenido">
-      <section id="datos" aria-labelledby="h-datos">
-        <h2 id="h-datos">Datos del problema</h2>
-        <ul class="fuentes">
-          <li>
-            <p class="que">Unas 150.000 personas siguen las cosechas cada año; 35.000 salen de Santiago del Estero en cuadrillas de 13 a 17. Las campañas duran dos o tres meses. El 67% de los asalariados agrícolas no está registrado (INDEC 2024, citado por la nota).</p>
-            <p class="ref">Infobae (27/09/2026). <a href="https://www.infobae.com/sociedad/2026/09/27/aves-de-paso-la-larga-travesia-de-los-150-mil-trabajadores-golondrina-que-recorren-el-pais-detras-de-cada-cosecha/" target="_blank" rel="noopener">Aves de paso: la larga travesía de los 150 mil trabajadores golondrina</a>.</p>
-          </li>
-          <li>
-            <p class="que">El 6% de los migrantes rurales accedió a la prestación por desempleo.</p>
-            <p class="ref">OIT (2026). <a href="https://www.ilo.org/sites/default/files/2026-04/Oportunidades%20y%20desafios%20para%20mejorar%20vida%20laboral%20migrantes.pdf" target="_blank" rel="noopener">Informe sobre trabajadores migrantes rurales en Argentina</a> (PDF).</p>
-          </li>
-          <li>
-            <p class="que">El 01/09/2026 venció el decreto 514/2021, que permitía cobrar un plan social y trabajar registrado en la cosecha.</p>
-            <p class="ref">Huella del Sur (03/09/2026). <a href="https://huelladelsur.ar/2026/09/03/el-gobierno-dejo-vencer-el-decreto-que-compatibiliza-trabajo-rural-y-planes-sociales-y-quedaron-120-000-puestos-de-trabajo-sin-certezas/" target="_blank" rel="noopener">El Gobierno dejó vencer el decreto que compatibiliza trabajo rural y planes sociales</a>.</p>
-          </li>
-          <li>
-            <p class="que">El Reglamento UE 2024/3015 contra el trabajo forzoso rige desde el 14/12/2027.</p>
-            <p class="ref">Fieldfisher. <a href="https://www.fieldfisher.com/en/locations/germany/insights/eu-forced-labour-regulation" target="_blank" rel="noopener">EU Forced Labour Regulation</a> (en inglés).</p>
-          </li>
-          <li>
-            <p class="que">El acuerdo comercial UE-Mercosur se aplica en forma provisoria desde el 01/05/2026.</p>
-            <p class="ref">Comisión Europea (2026). <a href="https://trade.ec.europa.eu/access-to-markets/es/news/aplicacion-del-acuerdo-comercial-interino-ue-mercosur-el-1-de-mayo-de-2026" target="_blank" rel="noopener">Aplicación del acuerdo comercial interino UE-Mercosur el 1 de mayo de 2026</a>.</p>
-          </li>
-          <li>
-            <p class="que">El traslado y el alojamiento quedan a cargo del empleador.</p>
-            <p class="ref"><a href="https://www.argentina.gob.ar/normativa/nacional/norma-192152/actualizacion" target="_blank" rel="noopener">Ley 26.727 de Trabajo Agrario, texto actualizado</a>.</p>
-          </li>
+</header>
+<div class="menu" id="menu" data-menu>
+  <div class="menu-velo" data-menu-cerrar></div>
+  <div class="menu-panel" role="dialog" aria-modal="true" aria-label="Menú">
+    <div class="menu-top">
+      <a class="logo" href="../" aria-label="Bandada, inicio"><svg class="ave" aria-hidden="true" focusable="false"><use href="../img/marca/marca.svg#ave"/></svg><svg class="palabra" aria-hidden="true" focusable="false"><use href="../img/marca/marca.svg#palabra"/></svg></a>
+      <button class="menu-cerrar" type="button" data-menu-cerrar><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/iconos.svg#i-x"/></svg><span>Cerrar</span></button>
+    </div>
+    <div class="menu-acc">
+      <a href="../trabajadores/"><strong>Trabajadores</strong><span>Tu próximo paso empieza acá</span><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/iconos.svg#i-arrow-right"/></svg></a>
+      <a class="empresa" href="../empresas/"><strong>Empresas</strong><span>Planificá tu próxima cosecha</span><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/iconos.svg#i-arrow-right"/></svg></a>
+    </div>
+    <ul class="menu-links"><li><a href="../#servicios">Servicios</a></li><li><a href="../#como">Cómo funciona</a></li><li><a href="../#rutas">Rutas</a></li><li><a href="../blog/">Blog</a></li><li><a href="../nosotros/">Nosotros</a></li><li><a href="../fuentes/">Fuentes</a></li></ul>
+    <p class="menu-red"><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/iconos.svg#i-instagram-logo"/></svg><a href="https://www.instagram.com/bandada.world/" target="_blank" rel="noopener">@bandada.world</a></p>
+  </div>
+</div>
+<main id="contenido" class="fuentes">
+  <section class="seccion">
+    <div class="ancho fuentes-grid">
+      <div class="fuentes-cab">
+        <h1 class="t-h2" data-split>Fuentes y metodología.</h1>
+        <p class="t-lead">De dónde sale cada dato del sitio, qué es una meta del plan y qué falta confirmar.</p>
+        <nav class="fuentes-indice" aria-label="En esta página"><ul>
+          <li><a href="#problema">Datos del problema</a></li><li><a href="#calendario">Calendario de la Ruta Norte</a></li>
+          <li><a href="#servicio">Parámetros y metas del plan</a></li><li><a href="#recursos">Imágenes y recursos</a></li>
+          <li><a href="#ia">Uso de IA</a></li><li><a href="#falta">Qué falta confirmar</a></li></ul></nav>
+      </div>
+      <div class="prosa">
+        <h2 id="problema">Datos del problema</h2>
+        <ul class="refs">
+          <li><p>Unas 150.000 personas siguen las cosechas cada año; 35.000 salen de Santiago del Estero en cuadrillas de 13 a 17. Las campañas duran dos o tres meses. El 67% de los asalariados agrícolas no está registrado (INDEC 2024, citado por la nota).</p><p class="ref">Infobae (27/09/2026). <a href="https://www.infobae.com/sociedad/2026/09/27/aves-de-paso-la-larga-travesia-de-los-150-mil-trabajadores-golondrina-que-recorren-el-pais-detras-de-cada-cosecha/" target="_blank" rel="noopener">Aves de paso: la larga travesía de los 150 mil trabajadores golondrina</a>.</p></li>
+          <li><p>El 6% de los migrantes rurales accedió a la prestación por desempleo.</p><p class="ref">OIT (2026). <a href="https://www.ilo.org/sites/default/files/2026-04/Oportunidades%20y%20desafios%20para%20mejorar%20vida%20laboral%20migrantes.pdf" target="_blank" rel="noopener">Informe sobre trabajadores migrantes rurales en Argentina</a> (PDF).</p></li>
+          <li><p>El 01/09/2026 venció el decreto 514/2021, que permitía cobrar un plan social y trabajar registrado en la cosecha.</p><p class="ref">Huella del Sur (03/09/2026). <a href="https://huelladelsur.ar/2026/09/03/el-gobierno-dejo-vencer-el-decreto-que-compatibiliza-trabajo-rural-y-planes-sociales-y-quedaron-120-000-puestos-de-trabajo-sin-certezas/" target="_blank" rel="noopener">El Gobierno dejó vencer el decreto que compatibiliza trabajo rural y planes sociales</a>.</p></li>
+          <li><p>El Reglamento UE 2024/3015 contra el trabajo forzoso rige desde el 14/12/2027.</p><p class="ref">Fieldfisher. <a href="https://www.fieldfisher.com/en/locations/germany/insights/eu-forced-labour-regulation" target="_blank" rel="noopener">EU Forced Labour Regulation</a> (en inglés).</p></li>
+          <li><p>El acuerdo comercial UE-Mercosur se aplica en forma provisoria desde el 01/05/2026.</p><p class="ref">Comisión Europea (2026). <a href="https://trade.ec.europa.eu/access-to-markets/es/news/aplicacion-del-acuerdo-comercial-interino-ue-mercosur-el-1-de-mayo-de-2026" target="_blank" rel="noopener">Aplicación del acuerdo comercial interino UE-Mercosur el 1 de mayo de 2026</a>.</p></li>
+          <li><p>El traslado y el alojamiento quedan a cargo del empleador.</p><p class="ref"><a href="https://www.argentina.gob.ar/normativa/nacional/norma-192152/actualizacion" target="_blank" rel="noopener">Ley 26.727 de Trabajo Agrario, texto actualizado</a>.</p></li>
         </ul>
-      </section>
-
-      <section id="circuito" aria-labelledby="h-circ">
-        <h2 id="h-circ">Calendario del circuito</h2>
-        <p class="intro">El circuito Norte-Pampa es la propuesta para el año 1. Los meses de cada tramo salen de estas fuentes públicas.</p>
-        <div class="tramo" id="arandano" style="--c:var(--arandano)">
-          <h3>Arándano, Tucumán<span class="mono">ago a oct</span></h3>
-          <p>Pico de cosecha en septiembre y octubre, con 30 a 40 personas por hectárea en plena temporada.</p>
-          <p class="ref">IBO (08/06/2026). <a href="https://www.internationalblueberry.org/2026/06/08/argentina-proyecta-una-cosecha-de-15-millones-de-kilos-de-arandanos-para-la-temporada-2026/" target="_blank" rel="noopener">Argentina proyecta una cosecha de 15 millones de kilos de arándanos para la temporada 2026</a>.</p>
-        </div>
-        <div class="tramo" id="despanojado" style="--c:var(--despanojado)">
-          <h3>Despanojado de maíz, Pergamino<span class="mono">nov a ene</span></h3>
-          <p>Unos 12.100 santiagueños viajaban cada campaña al despanojado del noreste bonaerense, según un estudio de 2014.</p>
-          <p class="ref">Trabajo y Sociedad (2014). <a href="https://www.scielo.org.ar/scielo.php?script=sci_arttext&amp;pid=S1514-68712014000100003" target="_blank" rel="noopener">Artículo sobre el despanojado</a>, en SciELO Argentina.</p>
-        </div>
-        <div class="tramo" id="aceituna" style="--c:var(--aceituna)">
-          <h3>Aceituna de mesa, Catamarca y La Rioja<span class="mono">feb a abr</span></h3>
-          <p>La cosecha va de fines de enero hasta abril.</p>
-          <p class="ref">Catamarca Actual, nota sobre el calendario de la aceituna de mesa. <span class="sin">Falta recuperar el enlace.</span></p>
-        </div>
-        <div class="tramo" id="limon" style="--c:var(--limon)">
-          <h3>Limón, Tucumán<span class="mono">may a jul</span></h3>
-          <p>La cosecha emplea unas 40.000 personas y tiene su pico en julio y agosto.</p>
-          <p class="ref">CEIL-CONICET (2024). <a href="https://www.ceil-conicet.gov.ar/wp-content/uploads/2024/11/mi18-EPT-limon.pdf" target="_blank" rel="noopener">Informe sobre la cosecha de limón en Tucumán</a> (PDF).</p>
-        </div>
-        <div class="tramo" id="andino" style="--c:var(--tinta-3)">
-          <h3>Circuito Andino, año 2<span class="mono">ilustrativo</span></h3>
-          <p>Cereza en Chile central, pera y manzana en el Alto Valle, vendimia en Mendoza y San Juan. Es un objetivo del plan: los meses y las fuentes de cada tramo todavía no están confirmados.</p>
-          <p class="ref">Contexto sobre Chile: Infobae (10/07/2026). <a href="https://www.infobae.com/america/america-latina/2026/07/10/chile-flexibilizara-los-contratos-para-extranjeros-que-trabajan-como-temporeros-en-el-agro/" target="_blank" rel="noopener">Chile flexibilizará los contratos para extranjeros que trabajan como temporeros en el agro</a>.</p>
-        </div>
-      </section>
-
-      <section id="metodologia" aria-labelledby="h-met">
-        <h2 id="h-met">Cómo estimamos</h2>
-        <p class="intro">Son estimaciones del equipo con valores provisorios del plan. Sirven para conversar, no son cotizaciones ni promesas.</p>
-        <h3>Jornadas por año</h3>
-        <dl class="calc" style="margin:12px 0 28px">
-          <div><dt>Hoy, ≈ 95</dt><dd>Una campaña de limón de 2 a 3 meses, de lunes a sábado.</dd></div>
-          <div><dt>Circuito completo, ≈ 220</dt><dd>Los cuatro tramos encadenados con dos pausas en casa. Es el potencial de largo plazo.</dd></div>
+        <h2 id="calendario">Calendario de la Ruta Norte</h2>
+        <p>La Ruta Norte es la propuesta para el año 1, de febrero a enero, según el documento interno Finanzas: Rutas Norte y Sur v2.1 (octubre de 2026). Los meses de cada cosecha salen de estas fuentes públicas:</p>
+        <ul class="refs">
+          <li><p><strong>Aceituna de mesa, Catamarca, feb a abr.</strong> La cosecha va de fines de enero hasta abril.</p><p class="ref">Catamarca Actual, nota sobre el calendario de la aceituna de mesa. <span class="sin">Falta recuperar el enlace.</span></p></li>
+          <li><p><strong>Limón, Tucumán, may a jul.</strong> La cosecha emplea unas 40.000 personas y tiene su pico en julio y agosto.</p><p class="ref">CEIL-CONICET (2024). <a href="https://www.ceil-conicet.gov.ar/wp-content/uploads/2024/11/mi18-EPT-limon.pdf" target="_blank" rel="noopener">Informe sobre la cosecha de limón en Tucumán</a> (PDF).</p></li>
+          <li><p><strong>Arándano, Tucumán, ago a oct.</strong> Pico de cosecha en septiembre y octubre, con 30 a 40 personas por hectárea en plena temporada.</p><p class="ref">IBO (08/06/2026). <a href="https://www.internationalblueberry.org/2026/06/08/argentina-proyecta-una-cosecha-de-15-millones-de-kilos-de-arandanos-para-la-temporada-2026/" target="_blank" rel="noopener">Argentina proyecta una cosecha de 15 millones de kilos de arándanos para la temporada 2026</a>.</p></li>
+          <li><p><strong>Despanojado de maíz, Pergamino, nov a ene.</strong> Unos 12.100 santiagueños viajaban cada campaña al despanojado del noreste bonaerense, según un estudio de 2014.</p><p class="ref">Trabajo y Sociedad (2014). <a href="https://www.scielo.org.ar/scielo.php?script=sci_arttext&amp;pid=S1514-68712014000100003" target="_blank" rel="noopener">Artículo sobre el despanojado</a>, en SciELO Argentina.</p></li>
+          <li><p><strong>Ruta Sur, en estudio desde el año 2.</strong> Entrada por Mendoza: pera y manzana en el Alto Valle, aceituna y nuez en Cuyo, poda, y ajo y cereza en Mendoza. Es un objetivo del plan: meses, lugares y fuentes de cada tramo a confirmar.</p><p class="ref">Bandada (2026). Finanzas: Rutas Norte y Sur v2.1.</p></li>
+        </ul>
+        <h2 id="servicio">Parámetros y metas del plan</h2>
+        <p>Cuadrillas de 15 personas con un Jefe de Bandada, micros de 45 asientos para tres cuadrillas, un objetivo de reubicación de 72 horas si una cosecha se cae y dos pausas en casa por año. Salen de los documentos internos Logística y Operaciones y Finanzas: Rutas Norte y Sur v2.1 (octubre de 2026). Son el diseño del servicio, no resultados.</p>
+        <dl class="calc">
+          <div><dt>Hoy, unas 95 jornadas</dt><dd>Una campaña suelta de limón, de 2 a 3 meses, de lunes a sábado. Estimación del equipo con datos de Infobae (2026).</dd></div>
+          <div><dt>Circuito completo, unas 220</dt><dd>Los cuatro tramos encadenados con dos pausas en casa. Es el potencial de largo plazo, no una promesa.</dd></div>
           <div><dt>Metas del plan</dt><dd>90 jornadas por persona en el año 1, 130 en el año 2 y 160 en el año 3.</dd></div>
-          <div><dt>En el gráfico</dt><dd>Cada cuadrado equivale a 5 jornadas; los círculos son las pausas en casa.</dd></div>
         </dl>
-        <h3>Estimación para productores</h3>
-        <dl class="calc" style="margin-top:12px">
-          <div><dt>Jornales</dt><dd>Personas × días hábiles entre las dos fechas, de lunes a sábado.</dd></div>
-          <div><dt>Masa salarial</dt><dd>Jornales × USD 28.</dd></div>
-          <div><dt>Movilidad</dt><dd>Jornales × USD 0,90.</dd></div>
-          <div><dt>Comisión</dt><dd>Masa salarial × 6% si se pide con 60 días o más; 7% con 21 a 59 días; 9% con menos de 21 días.</dd></div>
-        </dl>
-        <p class="nota">Los valores salen de documentos internos del equipo: Bandada (2026), Procesos y Logística v2, Supuestos maestros v10 y Cadena de abastecimiento. Las metas del año 1 (600 trabajadores, 40 cuadrillas y 54.000 jornales) salen de los mismos supuestos. La página no envía datos a ningún servidor: arma un mensaje para que la persona lo mande por Instagram.</p>
-      </section>
-
-      <section id="imagenes" aria-labelledby="h-img">
-        <h2 id="h-img">Imágenes y recursos</h2>
-        <ul class="lista">
-          <li><b>Fotografías.</b> Ilustrativas, generadas con IA en Canva y después compuestas y ajustadas de color para el sitio. Muestran personas adultas y no muestran trabajadores, productores ni clientes reales de Bandada. La web las marca como «Imagen ilustrativa · IA».</li>
-          <li><b>Ilustraciones.</b> Los pasos de un tramo, el Pasaporte, la rueda del año y los íconos de cultivos se dibujaron en SVG para este sitio.</li>
-          <li><b>Mapa.</b> Natural Earth, dominio público, proyectado y simplificado para la web.</li>
-          <li><b>Tipografías.</b> Bricolage Grotesque, Atkinson Hyperlegible Next e IBM Plex Mono, con licencia SIL Open Font, alojadas en el propio sitio.</li>
-          <li><b>Componentes de interfaz.</b> Varios controles interactivos (pestañas, asistente por pasos, calendario, selector de cantidad, preguntas) parten de Lucian UX/UI Prompt, licencia MIT, (c) 2026 Seokwoooo, <a href="https://lucianlabs.dev/uxui-prompt/" target="_blank" rel="noopener">lucianlabs.dev/uxui-prompt</a>, adaptados a la marca.</li>
+        <p>Los valores del servicio no se publican hasta completar la revisión legal del modelo.</p>
+        <h2 id="recursos">Imágenes y recursos</h2>
+        <ul class="refs">
+          <li><p><strong>Fotografías.</strong> Ilustrativas, generadas con IA en Canva y convertidas para el sitio. Muestran personas adultas y no muestran trabajadores, productores ni clientes reales de Bandada. La web las marca como «Imagen ilustrativa · IA» y cada archivo lleva al lado su prompt de generación.</p></li>
+          <li><p><strong>Logo.</strong> Diseñado por el área Identidad de Bandada. Para la web se pasó a vector manteniendo el ave, la palabra y el lema originales.</p></li>
+          <li><p><strong>Mapa.</strong> Natural Earth, dominio público, proyectado y simplificado para la web.</p></li>
+          <li><p><strong>Tipografías.</strong> Outfit y Atkinson Hyperlegible Next, con licencia SIL Open Font, alojadas en el propio sitio.</p></li>
+          <li><p><strong>Íconos.</strong> Phosphor Icons, licencia MIT.</p></li>
+          <li><p><strong>Animación.</strong> GSAP (licencia estándar de GreenSock) y Lenis (licencia MIT), alojadas en el propio sitio.</p></li>
         </ul>
-      </section>
-
-      <section id="ia" aria-labelledby="h-ia">
-        <h2 id="h-ia">Declaración de uso de IA</h2>
-        <p class="intro">Según los artículos 25 a 28 del reglamento del Mundial de Estudiantes de Administración 2026.</p>
+        <h2 id="ia">Declaración de uso de IA</h2>
+        <p>Según los artículos 25 a 28 del reglamento del Mundial de Estudiantes de Administración 2026.</p>
         <div class="apa">
           <p>Anthropic. (2026). <i>Claude</i> (Opus 5.5) [Modelo de lenguaje de gran escala]. https://claude.ai</p>
           <p>Canva. (2026). <i>Canva</i> [Plataforma de diseño con generación de imágenes por IA]. https://www.canva.com</p>
         </div>
-        <ul class="lista">
-          <li>Claude se usó para investigar, redactar borradores, diseñar y programar este sitio.</li>
-          <li>Canva se usó para generar las fotografías ilustrativas.</li>
-          <li>El equipo revisó el contenido, toma las decisiones y responde por cada dato.</li>
-        </ul>
-      </section>
-
-      <section id="pendiente" aria-labelledby="h-pen">
-        <h2 id="h-pen">Qué falta confirmar</h2>
-        <ul class="lista">
-          <li>Fechas del piloto del circuito Norte-Pampa.</li>
-          <li>Cortes exactos de la comisión y valores de jornal y movilidad, que se ajustan con las entrevistas a productores.</li>
+        <p>Claude se usó para investigar, redactar borradores, diseñar y programar este sitio. Canva se usó para generar las fotografías ilustrativas. El equipo revisó el contenido, toma las decisiones y responde por cada dato.</p>
+        <h2 id="falta">Qué falta confirmar</h2>
+        <ul>
+          <li>Fechas del piloto de la Ruta Norte.</li>
+          <li>Valores del servicio, jornal y movilidad, que se ajustan con las entrevistas a productores y la revisión legal.</li>
           <li>Costos de alojamiento en cada tramo.</li>
-          <li>Meses y fuentes de cada tramo del circuito Andino.</li>
+          <li>Meses y fuentes de cada tramo de la Ruta Sur.</li>
           <li>Enlace a la nota de Catamarca Actual sobre la aceituna de mesa.</li>
           <li>Alcance legal de la intermediación en el agro tras la Ley 27.742, con asesoramiento legal.</li>
+          <li>Cuentas de usuario para trabajadores y empresas: hoy las pantallas de acceso son una vista previa.</li>
           <li>Otros canales de contacto: por ahora el único es Instagram, <a href="https://www.instagram.com/bandada.world/" target="_blank" rel="noopener">@bandada.world</a>.</li>
         </ul>
-      </section>
-    </main>
-  </div>
-</div>
-
-<footer class="pie">
-  <div class="wrap">
-    <p>Propuesta de startup para el Mundial de Estudiantes de Administración 2026 (CLAM, Mendoza). Las cifras del plan son hipótesis en validación. <a href="../">Volver a la página principal</a>.</p>
+        <p class="t-fuente">Propuesta de startup para el Mundial de Estudiantes de Administración 2026 (CLAM, Mendoza). Las cifras del plan son hipótesis en validación.</p>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="pie oscuro">
+  <div class="ancho">
+    <div class="pie-top">
+      <div class="pie-marca">
+        <img class="pie-logo" src="../img/marca/bandada-logo-claro.svg" alt="Bandada. Que la temporada no se termine" width="708" height="440" loading="lazy">
+      </div>
+      <div class="pie-cols">
+        <div><h2>Servicio</h2><ul>
+          <li><a href="../#servicios">Servicios</a></li>
+          <li><a href="../#como">Cómo funciona</a></li>
+          <li><a href="../#rutas">Rutas</a></li>
+        </ul></div>
+        <div><h2>Accesos</h2><ul>
+          <li><a href="../trabajadores/">Trabajadores</a></li>
+          <li><a href="../empresas/">Empresas</a></li>
+        </ul></div>
+        <div><h2>Bandada</h2><ul>
+          <li><a href="../nosotros/">Nosotros</a></li>
+          <li><a href="../blog/">Blog</a></li>
+          <li><a href="../fuentes/">Fuentes y metodología</a></li>
+        </ul></div>
+        <div><h2>Contacto</h2><ul>
+          <li><a class="pie-ig" href="https://www.instagram.com/bandada.world/" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/iconos.svg#i-instagram-logo"/></svg>@bandada.world</a></li>
+        </ul></div>
+      </div>
+    </div>
+    <div class="pie-bajo">
+      <p>Bandada está preparando su primer circuito. Las cifras del plan son hipótesis en validación y las fotos son imágenes ilustrativas generadas con IA. <a href="../fuentes/">Fuentes y metodología</a>.</p>
+      <p>© 2026 Bandada</p>
+    </div>
   </div>
 </footer>
 </body>

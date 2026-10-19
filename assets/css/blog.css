@@ -1,0 +1,37 @@
+/* Bandada · blog */
+
+.blog-top { padding-top: calc(var(--cab) + clamp(48px, 7vw, 104px)); }
+.blog-top .t-display { font-size: clamp(3.5rem, 2rem + 6vw, 7rem); }
+.blog-top .t-lead { color: var(--tinta-2); }
+.blog-grid { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: clamp(28px, 4vw, 64px); align-items: start; }
+.post-card--grande .post-foto { aspect-ratio: 16 / 11; }
+.post-card--grande .post-t { font-size: clamp(1.75rem, 1.25rem + 1.7vw, 2.75rem); line-height: 1.06; letter-spacing: -.025em; }
+.post-card--grande .post-b { font-size: 1.0625rem; max-width: 56ch; }
+.blog-lista { display: grid; gap: 28px; }
+.blog-lista .post-card + .post-card { padding-top: 28px; border-top: 1px solid var(--linea); }
+@media (max-width: 900px) { .blog-grid { grid-template-columns: 1fr; } }
+
+/* ---------- nota ---------- */
+.nota-cab { display: grid; gap: 22px; justify-items: start; padding-top: calc(var(--cab) + clamp(40px, 6vw, 88px)); padding-bottom: clamp(32px, 4vw, 56px); }
+.nota-cab .t-lead { color: var(--tinta-2); max-width: 58ch; }
+.nota-t { max-width: 22ch; }
+.enlace-flecha--atras { color: var(--naranja-texto); }
+.enlace-flecha--atras:hover .ico { transform: translateX(-3px); }
+.nota-foto { aspect-ratio: 21 / 9; }
+.nota-foto img { object-position: 50% 35%; }
+.nota-cuerpo { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: clamp(32px, 6vw, 112px); align-items: start; padding-top: clamp(40px, 6vw, 80px); }
+.nota-aside { position: sticky; top: calc(var(--cab) + 24px); display: grid; gap: 14px; padding: 24px; border-radius: var(--r-tarjeta); background: var(--beige-2); box-shadow: inset 0 0 0 1px var(--linea); }
+.nota-aside-t { font: 600 1.125rem/1.2 var(--f-titulo); }
+.nota-aside p:not(.nota-aside-t) { color: var(--tinta-2); font-size: .9375rem; }
+.nota-fuentes { margin-top: 3em !important; padding-top: 24px; border-top: 1px solid var(--linea); color: var(--tinta-2); font-size: .9375rem; line-height: 1.6; }
+.prosa .nota-fuentes h2 { margin-top: 0; font-size: 1.25rem; }
+.nota-fuentes ul { margin-top: .6em; }
+.nota-fuentes p { margin-top: .8em; }
+.nota-sigue { margin-top: clamp(56px, 8vw, 112px); border-top: 1px solid var(--linea); }
+.sigue-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; margin-top: 32px; }
+@media (max-width: 900px) {
+  .nota-cuerpo { grid-template-columns: 1fr; }
+  .nota-aside { position: static; }
+  .nota-foto { aspect-ratio: 16 / 10; }
+  .sigue-grid { grid-template-columns: 1fr; }
+}
