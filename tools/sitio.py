@@ -836,7 +836,7 @@ def nosotros():
              ('Marketing', 'La relación con productores y trabajadores, y este sitio.'),
              ('Innovación y tecnología', 'El Pasaporte Bandada, los pedidos y Cosecha Trazable.'),
              ('Recursos humanos', 'Registro, formación y acompañamiento de las cuadrillas.'),
-             ('Logística y operaciones', 'Traslados, alojamiento e inspecciones, con inspectores en Catamarca, Tucumán y Buenos Aires.'),
+             ('Administración de trabajadores rurales y logística', 'Traslados, alojamiento e inspecciones, con inspectores en Catamarca, Tucumán y Buenos Aires.'),
              ('Jefes de Bandada', 'Una persona a cargo de cada cuadrilla en la finca.')]
     ar = ''.join(f'<li data-reveal><strong>{t}</strong><span>{d}</span></li>' for t, d in areas)
     cuerpo = f'''<main id="contenido" class="nos">
