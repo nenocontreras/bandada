@@ -554,7 +554,7 @@ ACCESOS = {
         'usuario': ('Correo de la empresa', 'email', ''),
         'registrar': 'Registrar mi empresa',
         'otro': ('¿Sos trabajador?', 'trabajadores/', 'Ingresá por acá'),
-        'faq': [('¿Cuánto cuesta el servicio?', 'Depende del cultivo, las fechas y el tamaño de la cuadrilla. Los valores están en revisión: contanos tu cosecha y te respondemos.'),
+        'faq': [('¿Cuánto cuesta el servicio?', 'El plan prevé una comisión de entre 6% y 9% sobre los sueldos netos de la cuadrilla: 6% si la reservás con más de 60 días de anticipación y 9% si el pedido es urgente. El total depende del cultivo, las fechas y el tamaño de la cuadrilla: contanos tu cosecha y te respondemos.'),
                 ('¿Quién da el alojamiento?', 'El productor aloja a la cuadrilla y Bandada inspecciona y aprueba el alojamiento antes de cada tramo.'),
                 ('¿Qué pasa si la cosecha se cae?', 'Buscamos reubicar a la cuadrilla en otra finca del circuito, con un objetivo de 72 horas.'),
                 ('¿Qué es Cosecha Trazable?', 'Un registro por lote de quién cosechó, cuándo y con qué cuadrilla, pensado para auditorías sociales. Está en validación.')],
@@ -720,7 +720,7 @@ ARTICULOS = {
 <p>Para la empresa productora, la cuadrilla llega organizada: 15 personas con un Jefe de Bandada, traslado coordinado y un alojamiento que el productor ofrece y Bandada inspecciona antes de que llegue la cuadrilla. Para quien cosecha, la temporada sigue en la próxima cosecha en lugar de cortarse a los tres meses.</p>
 <p>Según una estimación del equipo, una campaña suelta de limón suma unas 95 jornadas en el año. Con los cuatro tramos encadenados, el potencial de largo plazo ronda las 220 jornadas. Es una meta del plan, no una promesa.</p>
 <h2>Qué falta confirmar</h2>
-<p>Las fechas del piloto, los valores del servicio y el detalle de cada tramo se definen con las entrevistas a productores. Lo vamos a contar en este blog y en Instagram.</p>''',
+<p>Las fechas del piloto y el detalle de cada tramo se definen con las entrevistas a productores. Lo vamos a contar en este blog y en Instagram.</p>''',
     'alojamiento-inspeccionado': '''
 <p>Cuando una cuadrilla viaja a cosechar, el lugar donde duerme y come es tan importante como el trabajo. En el modelo de Bandada el reparto es claro: <strong>el productor aloja a la cuadrilla; Bandada inspecciona y aprueba el alojamiento</strong> antes de que llegue.</p>
 <h2>Por qué una inspección previa</h2>
@@ -917,7 +917,7 @@ def fuentes():
           <div><dt>Circuito completo, unas 220</dt><dd>Los cuatro tramos encadenados con dos pausas en casa. Es el potencial de largo plazo, no una promesa.</dd></div>
           <div><dt>Metas del plan</dt><dd>90 jornadas por persona en el año 1, 130 en el año 2 y 160 en el año 3.</dd></div>
         </dl>
-        <p>Los valores del servicio no se publican hasta completar la revisión legal del modelo.</p>
+        <p>Comisión prevista: entre 6% y 9% sobre los sueldos netos de la cuadrilla, 6% con reserva anticipada de más de 60 días y 9% para pedidos urgentes. Sale de los documentos internos Modelo Canvas (Identidad) y Estrategia de venta (Marketing), de octubre de 2026. Es la propuesta del plan y se valida con el piloto.</p>
         <h2 id="recursos">Imágenes y recursos</h2>
         <ul class="refs">
           <li><p><strong>Fotografías.</strong> Ilustrativas, generadas con IA en Canva y convertidas para el sitio. Muestran personas adultas y no muestran trabajadores, productores ni clientes reales de Bandada. La web las marca como «Imagen ilustrativa · IA» y cada archivo lleva al lado su prompt de generación.</p></li>
@@ -937,7 +937,7 @@ def fuentes():
         <h2 id="falta">Qué falta confirmar</h2>
         <ul>
           <li>Fechas del piloto de la Ruta Norte.</li>
-          <li>Valores del servicio, jornal y movilidad, que se ajustan con las entrevistas a productores y la revisión legal.</li>
+          <li>Jornal y costos de movilidad, que se ajustan con las entrevistas a productores y la revisión legal.</li>
           <li>Costos de alojamiento en cada tramo.</li>
           <li>Meses y fuentes de cada tramo de la Ruta Sur.</li>
           <li>Enlace a la nota de Catamarca Actual sobre la aceituna de mesa.</li>
