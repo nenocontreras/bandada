@@ -126,6 +126,27 @@
     });
   });
 
+  // "Otro" en un desplegable abre un campo para escribirlo, que solo es obligatorio mientras se ve
+  main.querySelectorAll('[data-si-otro]').forEach(function (caja) {
+    var select = document.getElementById(caja.getAttribute('data-si-otro'));
+    var input = caja.querySelector('input');
+    if (!select || !input) return;
+    function actualizar() {
+      var ver = select.value === 'Otro';
+      caja.hidden = !ver;
+      input.required = ver;
+      if (!ver) {
+        input.setAttribute('aria-invalid', 'false');
+        var err = document.getElementById(input.id + '-error');
+        if (err) { err.textContent = ''; err.hidden = true; }
+      } else if (window.gsap && B.motion) {
+        window.gsap.fromTo(caja, { autoAlpha: 0, y: -6 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: 'power2.out' });
+      }
+    }
+    select.addEventListener('change', actualizar);
+    actualizar();
+  });
+
   function estado(form, html, tipo) {
     var e = form.querySelector('[data-estado]');
     if (!e) return;
@@ -182,11 +203,13 @@
       var cuadrilla = valor(form, '#t-cuadrilla');
       if (cuadrilla) lineas.push('Cuadrilla: ' + cuadrilla);
     } else {
+      var cultivo = valor(form, '#e-cultivo');
+      if (cultivo === 'Otro' && valor(form, '#e-cultivo-otro')) cultivo = valor(form, '#e-cultivo-otro');
       lineas = [
         'Hola, Bandada. Quiero contarles sobre mi cosecha.',
         'Empresa o finca: ' + valor(form, '#e-empresa'),
         'Ubicación de la finca: ' + valor(form, '#e-lugar'),
-        'Cultivo: ' + valor(form, '#e-cultivo')
+        'Cultivo: ' + cultivo
       ];
       var mes = valor(form, '#e-mes');
       var personas = valor(form, '#e-personas');

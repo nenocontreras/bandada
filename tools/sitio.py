@@ -606,6 +606,7 @@ def acceso(clave):
             <div class="campo"><label for="{pre}-cultivo">Cultivo</label>
               <select id="{pre}-cultivo" name="cultivo" required aria-describedby="{pre}-cultivo-error"><option value="">Elegí un cultivo</option><option>Aceituna</option><option>Limón</option><option>Arándano</option><option>Despanojado de maíz</option><option>Otro</option></select>
               <p class="campo-error" id="{pre}-cultivo-error" hidden></p></div>
+            <div data-si-otro="{pre}-cultivo" hidden>{campo(pre + '-cultivo-otro', '¿Qué cultivo?')}</div>
             <div class="campo-fila">
               <div class="campo"><label for="{pre}-mes">Mes de inicio <span>(opcional)</span></label>
                 <select id="{pre}-mes" name="mes"><option value="">A definir</option>{meses}</select></div>
